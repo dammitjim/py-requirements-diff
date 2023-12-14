@@ -3,11 +3,14 @@ Quick and dirty script to compare a git diff of a requirements.txt file for incl
 
 Could this have been done using fancy shell commands? Yeah probably.
 
+# Install
+
+* go install github.com/dammitjim/py-requirements-diff
+
 # Usage
-```
 ```bash
-git diff {version} requirements/common.txt | go run main.go -prefix="* "
+git diff {version} requirements/common.txt | py-requirements-diff -prefix="* "
 
 // but i want it sorted 
-git diff {version} requirements/common.txt | go run main.go -prefix="* " | sort
+git diff {version} requirements/common.txt | py-requirements-diff -prefix="* " | sort
 ```
