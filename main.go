@@ -14,7 +14,7 @@ func main() {
 
 	file, err := getFile()
 	if err != nil {
-    fmt.Println(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 	defer file.Close()
@@ -25,9 +25,9 @@ func main() {
 	scanner := bufio.NewScanner(bufio.NewReader(file))
 	for scanner.Scan() {
 		line := scanner.Text()
-    if len(line) == 0 {
-      continue // skip empty lines
-    }
+		if len(line) == 0 {
+			continue // skip empty lines
+		}
 
 		// skip noise lines
 		if line[1] == '+' || line[1] == '-' {
@@ -96,15 +96,15 @@ func getFile() (*os.File, error) {
 		return os.Stdin, nil
 	}
 
-  if len(os.Args) < 2 {
-    return nil, fmt.Errorf("No file provided")
-  }
+	if len(os.Args) < 2 {
+		return nil, fmt.Errorf("No file provided")
+	}
 
-  file, err := os.Open(os.Args[len(os.Args)-1])
-  if err != nil {
-    return nil, err
-  }
-  return file, nil
+	file, err := os.Open(os.Args[len(os.Args)-1])
+	if err != nil {
+		return nil, err
+	}
+	return file, nil
 }
 
 // isInputFromPipe inspects the stdin file info to determine if the input is piped from a previous command
