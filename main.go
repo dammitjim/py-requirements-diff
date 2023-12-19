@@ -96,11 +96,11 @@ func getFile() (*os.File, error) {
 		return os.Stdin, nil
 	}
 
-  if len(os.Args) != 2 {
+  if len(os.Args) < 2 {
     return nil, fmt.Errorf("No file provided")
   }
 
-  file, err := os.Open(os.Args[1])
+  file, err := os.Open(os.Args[len(os.Args)-1])
   if err != nil {
     return nil, err
   }

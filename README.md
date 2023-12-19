@@ -11,8 +11,11 @@ Could this have been done using fancy shell commands? Yeah probably.
 ```bash
 git diff {version} requirements/common.txt | py-requirements-diff -prefix="* "
 
-// but i want it sorted 
+// i want it sorted 
 git diff {version} requirements/common.txt | py-requirements-diff -prefix="* " | sort
+
+// i have a file instead 
+py-requirements-diff -prefix="* " diff.txt | sort
 ```
 
 ## Example output
